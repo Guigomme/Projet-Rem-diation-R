@@ -28,3 +28,4 @@ emdat <- fread("chemin_vers_votre_fichier/em_dat.csv")
 # Vérification rapide
 head(meteo)
 head(emdat)
+
