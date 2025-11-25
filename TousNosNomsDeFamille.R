@@ -23,7 +23,7 @@ meteo <- fread("chemin_vers_votre_fichier/meteo_france.csv")
 
 # Importation des données EM-DAT (Catastrophes naturelles)
 # Note : Seules les catastrophes en France nous intéressent pour la suite [cite: 49]
-emdat <- fread("chemin_vers_votre_fichier/em_dat.csv")
+emdat <- fread("/Users/andreasaintpaul/Desktop/Master/M1/Remediation\ R/em_dat.csv")
 
 # Vérification rapide
 head(meteo)
