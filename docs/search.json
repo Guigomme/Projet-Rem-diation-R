@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "stats2.html",
+    "href": "stats2.html",
+    "title": "Statistiques Descriptives",
+    "section": "",
+    "text": "Sur cette page, nous analysons l’évolution des températures en France."
+  },
+  {
+    "objectID": "stats2.html#évolution-de-la-température",
+    "href": "stats2.html#évolution-de-la-température",
+    "title": "Statistiques Descriptives",
+    "section": "Évolution de la Température",
+    "text": "Évolution de la Température\nVoici un graphique montrant la moyenne des températures par année :"
+  },
+  {
+    "objectID": "stats2.html#résumé-des-catastrophes",
+    "href": "stats2.html#résumé-des-catastrophes",
+    "title": "Statistiques Descriptives",
+    "section": "Résumé des Catastrophes",
+    "text": "Résumé des Catastrophes\nQuelques chiffres clés sur la période :\n\n\n   Total_Morts Total_Dommages_USD\n         &lt;int&gt;              &lt;num&gt;\n1:       28059        42164200000"
+  },
+  {
+    "objectID": "index2.html",
+    "href": "index2.html",
+    "title": "Bienvenue",
+    "section": "",
+    "text": "Projet : Impact du changement climatique sur les catastrophes naturelles\nBienvenue sur notre site d’analyse. Ce projet a été réalisé dans le cadre du cours “Introduction à R” du Master 1 IREF.\n\nMembres du groupe :\n\nGuillemette Cipriano\nAndréa Saint-Paul\nPriscillia Dohou\nJosuah Gesdon\nGuillaume Trillard\n\n\n\nObjectif\nNous cherchons à étudier si le réchauffement climatique a un impact sur la fréquence et le coût des catastrophes naturelles en France.\nVous pouvez naviguer vers : * Les statistiques descriptives * L’analyse des résultats"
+  },
+  {
+    "objectID": "analyse2.html",
+    "href": "analyse2.html",
+    "title": "Analyse des Résultats",
+    "section": "",
+    "text": "Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = nb_disasters ~ gap_temp, data = dt)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-0.5795 -0.4061 -0.3282  0.5374  2.6999 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  0.38390    0.03514   10.92   &lt;2e-16 ***\ngap_temp     0.09242    0.03803    2.43   0.0156 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6316 on 321 degrees of freedom\nMultiple R-squared:  0.01807,   Adjusted R-squared:  0.01501 \nF-statistic: 5.906 on 1 and 321 DF,  p-value: 0.01564\n\n\n\nConclusion de l’analyse\nComme vous pouvez le voir ci-dessus (sous le graphique) :\n\nLe coefficient (Estimate) pour gap_temp est positif (0.092).\nLa P-value (Pr(&gt;|t|)) est de 0.0156 (&lt; 0.05).\n\nCela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données."
+  },
+  {
+    "objectID": "analyse.html",
+    "href": "analyse.html",
+    "title": "Analyse des Résultats",
+    "section": "",
+    "text": "Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = nb_disasters ~ gap_temp, data = dt)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-0.5795 -0.4061 -0.3282  0.5374  2.6999 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  0.38390    0.03514   10.92   &lt;2e-16 ***\ngap_temp     0.09242    0.03803    2.43   0.0156 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6316 on 321 degrees of freedom\nMultiple R-squared:  0.01807,   Adjusted R-squared:  0.01501 \nF-statistic: 5.906 on 1 and 321 DF,  p-value: 0.01564\n\n\n\nConclusion de l’analyse\nComme vous pouvez le voir ci-dessus (sous le graphique) :\n\nLe coefficient (Estimate) pour gap_temp est positif (0.092).\nLa P-value (Pr(&gt;|t|)) est de 0.0156 (&lt; 0.05).\n\nCela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bienvenue",
+    "section": "",
+    "text": "Projet : Impact du changement climatique sur les catastrophes naturelles\nBienvenue sur notre site d’analyse. Ce projet a été réalisé dans le cadre du cours “Introduction à R” du Master 1 IREF.\n\nMembres du groupe :\n\nGuillemette Cipriano\nAndréa Saint-Paul\nPriscillia Dohou\nJosuah Gesdon\nGuillaume Trillard\n\n\n\nObjectif\nNous cherchons à étudier si le réchauffement climatique a un impact sur la fréquence et le coût des catastrophes naturelles en France.\nVous pouvez naviguer vers : * Les statistiques descriptives * L’analyse des résultats"
+  },
+  {
+    "objectID": "stats.html",
+    "href": "stats.html",
+    "title": "Statistiques Descriptives",
+    "section": "",
+    "text": "Sur cette page, nous analysons l’évolution des températures en France."
+  },
+  {
+    "objectID": "stats.html#évolution-de-la-température",
+    "href": "stats.html#évolution-de-la-température",
+    "title": "Statistiques Descriptives",
+    "section": "Évolution de la Température",
+    "text": "Évolution de la Température\nVoici un graphique montrant la moyenne des températures par année :"
+  },
+  {
+    "objectID": "stats.html#résumé-des-catastrophes",
+    "href": "stats.html#résumé-des-catastrophes",
+    "title": "Statistiques Descriptives",
+    "section": "Résumé des Catastrophes",
+    "text": "Résumé des Catastrophes\nQuelques chiffres clés sur la période :\n\n\n   Total_Morts Total_Dommages_USD\n         &lt;int&gt;              &lt;num&gt;\n1:       28059        42164200000"
+  }
+]

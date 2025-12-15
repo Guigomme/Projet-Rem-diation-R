@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Climat & Catastrophes"
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Accueil"
+      - href: stats.qmd
+        text: "Statistiques"
+      - href: analyse.qmd
+        text: "Analyse"
+
+format:
+  html:
+    theme: cosmo
+    toc: true

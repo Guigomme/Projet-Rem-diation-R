@@ -29,7 +29,7 @@ print(p)
 # 3. CALCUL ET AFFICHAGE DU MODÈLE
 # On fait la régression et on affiche le résumé juste en dessous
 modele <- lm(nb_disasters ~ gap_temp, data = dt)
-print(summary(modele))
+print(summary(modele)) 
 ```
 
 ### Conclusion de l'analyse

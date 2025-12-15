@@ -38,7 +38,7 @@ ggplot(dt, aes(x = year, y = temp_moy, group = year)) +
 Quelques chiffres clés sur la période :
 
 ```{r}
-#| echo: false
+#| echo: false 
 
 # --- BLOC 3 : CHIFFRES ---
 dt[, .(Total_Morts = sum(nb_deaths), 
