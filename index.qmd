@@ -1,0 +1,21 @@
+---
+title: "Bienvenue"
+---
+
+# Projet : Impact du changement climatique sur les catastrophes naturelles
+
+Bienvenue sur notre site d'analyse. Ce projet a été réalisé dans le cadre du cours "Introduction à R" du Master 1 IREF.
+
+### Membres du groupe :
+* Guillemette Cipriano
+* Andréa Saint-Paul
+* Priscillia Dohou
+* Josuah Gesdon
+* Guillaume Trillard
+
+### Objectif
+Nous cherchons à étudier si le réchauffement climatique a un impact sur la fréquence et le coût des catastrophes naturelles en France.
+
+Vous pouvez naviguer vers :
+* [Les statistiques descriptives](stats.qmd)
+* [L'analyse des résultats](analyse.qmd)

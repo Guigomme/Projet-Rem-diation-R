@@ -1,0 +1,42 @@
+---
+title: "Analyse des Résultats"
+---
+
+Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# 1. CHARGEMENT DES DONNÉES ET LIBRAIRIES
+library(data.table)
+library(ggplot2)
+dt <- fread("data/data_finale.csv")
+
+# 2. AFFICHAGE DU GRAPHIQUE
+# On stocke le graphique dans 'p' puis on l'affiche avec print()
+p <- ggplot(dt, aes(x = gap_temp, y = nb_disasters)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", color = "red") +
+  labs(title = "Relation Température / Catastrophes",
+       x = "Anomalie de température (°C)",
+       y = "Nombre de catastrophes") +
+  theme_minimal()
+
+print(p)
+
+# 3. CALCUL ET AFFICHAGE DU MODÈLE
+# On fait la régression et on affiche le résumé juste en dessous
+modele <- lm(nb_disasters ~ gap_temp, data = dt)
+print(summary(modele))
+```
+
+### Conclusion de l'analyse
+
+Comme vous pouvez le voir ci-dessus (sous le graphique) :
+
+* Le **coefficient** (Estimate) pour `gap_temp` est positif (**0.092**).
+* La **P-value** (Pr(>|t|)) est de **0.0156** (< 0.05).
+
+Cela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données.

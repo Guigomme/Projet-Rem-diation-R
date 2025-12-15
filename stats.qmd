@@ -1,0 +1,46 @@
+---
+title: "Statistiques Descriptives"
+---
+
+Sur cette page, nous analysons l'évolution des températures en France.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+# --- BLOC 1 : CHARGEMENT ---
+library(data.table)
+library(ggplot2)
+
+# On charge le fichier que vous avez créé à la fin de la Partie 1
+dt <- fread("data/data_finale.csv")
+```
+
+## Évolution de la Température
+
+Voici un graphique montrant la moyenne des températures par année :
+
+```{r}
+#| echo: false
+
+# --- BLOC 2 : GRAPHIQUE ---
+ggplot(dt, aes(x = year, y = temp_moy, group = year)) +
+  geom_boxplot(fill = "lightblue") +
+  labs(title = "Températures mensuelles en France (1996-2022)",
+       x = "Année",
+       y = "Température (°C)") +
+  theme_minimal()
+```
+
+## Résumé des Catastrophes
+
+Quelques chiffres clés sur la période :
+
+```{r}
+#| echo: false
+
+# --- BLOC 3 : CHIFFRES ---
+dt[, .(Total_Morts = sum(nb_deaths), 
+       Total_Dommages_USD = sum(total_damages)), by = NULL]
+```
