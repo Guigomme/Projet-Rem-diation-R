@@ -39,7 +39,7 @@
     "href": "analyse.html",
     "title": "Analyse des Résultats",
     "section": "",
-    "text": "Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = nb_disasters ~ gap_temp, data = dt)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-0.5795 -0.4061 -0.3282  0.5374  2.6999 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  0.38390    0.03514   10.92   &lt;2e-16 ***\ngap_temp     0.09242    0.03803    2.43   0.0156 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6316 on 321 degrees of freedom\nMultiple R-squared:  0.01807,   Adjusted R-squared:  0.01501 \nF-statistic: 5.906 on 1 and 321 DF,  p-value: 0.01564\n\n\n\nConclusion de l’analyse\nComme vous pouvez le voir ci-dessus (sous le graphique) :\n\nLe coefficient (Estimate) pour gap_temp est positif (0.092).\nLa P-value (Pr(&gt;|t|)) est de 0.0156 (&lt; 0.05).\n\nCela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données."
+    "text": "Nous cherchons ici à quantifier les liens entre le réchauffement (anomalie de température) et les conséquences des catastrophes."
   },
   {
     "objectID": "index.html",
@@ -68,5 +68,26 @@
     "title": "Statistiques Descriptives",
     "section": "Résumé des Catastrophes",
     "text": "Résumé des Catastrophes\nQuelques chiffres clés sur la période :\n\n\n   Total_Morts Total_Dommages_USD\n         &lt;int&gt;              &lt;num&gt;\n1:       28059        42164200000"
+  },
+  {
+    "objectID": "analyse.html#matrice-de-corrélation",
+    "href": "analyse.html#matrice-de-corrélation",
+    "title": "Analyse des Résultats",
+    "section": "Matrice de corrélation",
+    "text": "Matrice de corrélation\n\n\n\nMatrice de corrélation de Pearson\n\n\n\nGap_Temp\nNb_Catastrophes\nMorts\nCout\n\n\n\n\nGap_Temp\n1.00\n0.13\n0.18\n-0.02\n\n\nNb_Catastrophes\n0.13\n1.00\n0.08\n0.27\n\n\nMorts\n0.18\n0.08\n1.00\n0.28\n\n\nCout\n-0.02\n0.27\n0.28\n1.00\n\n\n\n\n\nOn observe une corrélation positive entre Gap_Temp et Nb_Catastrophes."
+  },
+  {
+    "objectID": "analyse.html#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements",
+    "href": "analyse.html#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements",
+    "title": "Analyse des Résultats",
+    "section": "Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?",
+    "text": "Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n              Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 0.38390093 0.03514148 10.924440 7.831184e-24\ngap_temp    0.09241737 0.03802874  2.430198 1.563827e-02\n\n\nLa p-value (Pr) associée à gap_temp est significative (&lt; 0.05). Un écart de température positif augmente la fréquence des aléas."
+  },
+  {
+    "objectID": "analyse.html#modèle-2-coût-économique",
+    "href": "analyse.html#modèle-2-coût-économique",
+    "title": "Analyse des Résultats",
+    "section": "Modèle 2 : Coût économique",
+    "text": "Modèle 2 : Coût économique"
   }
 ]

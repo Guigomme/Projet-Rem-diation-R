@@ -116,7 +116,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#conclusion-de-lanalyse" id="toc-conclusion-de-lanalyse" class="nav-link active" data-scroll-target="#conclusion-de-lanalyse">Conclusion de l’analyse</a></li>
+  <li><a href="#matrice-de-corrélation" id="toc-matrice-de-corrélation" class="nav-link active" data-scroll-target="#matrice-de-corrélation">Matrice de corrélation</a></li>
+  <li><a href="#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements" id="toc-fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements" class="nav-link" data-scroll-target="#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements">Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?</a></li>
+  <li><a href="#modèle-2-coût-économique" id="toc-modèle-2-coût-économique" class="nav-link" data-scroll-target="#modèle-2-coût-économique">Modèle 2 : Coût économique</a></li>
+  <li><a href="#lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd" id="toc-lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd" class="nav-link" data-scroll-target="#lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd">L’anomalie de température explique-t-elle le coût financier (en USD) ?</a>
+  <ul class="collapse">
+  <li><a href="#conclusion-de-lanalyse" id="toc-conclusion-de-lanalyse" class="nav-link" data-scroll-target="#conclusion-de-lanalyse">Conclusion de l’analyse</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -142,46 +148,100 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.</p>
+<p>Nous cherchons ici à quantifier les liens entre le réchauffement (anomalie de température) et les conséquences des catastrophes.</p>
+<section id="matrice-de-corrélation" class="level2">
+<h2 class="anchored" data-anchor-id="matrice-de-corrélation">Matrice de corrélation</h2>
 <div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Matrice de corrélation de Pearson</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Gap_Temp</th>
+<th style="text-align: right;">Nb_Catastrophes</th>
+<th style="text-align: right;">Morts</th>
+<th style="text-align: right;">Cout</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Gap_Temp</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">-0.02</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nb_Catastrophes</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morts</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cout</td>
+<td style="text-align: right;">-0.02</td>
+<td style="text-align: right;">0.27</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>On observe une corrélation positive entre Gap_Temp et Nb_Catastrophes.</p>
+</section>
+<section id="fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements" class="level2">
+<h2 class="anchored" data-anchor-id="fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements">Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="analyse_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="analyse_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = nb_disasters ~ gap_temp, data = dt)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--0.5795 -0.4061 -0.3282  0.5374  2.6999 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.38390    0.03514   10.92   &lt;2e-16 ***
-gap_temp     0.09242    0.03803    2.43   0.0156 *  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.6316 on 321 degrees of freedom
-Multiple R-squared:  0.01807,   Adjusted R-squared:  0.01501 
-F-statistic: 5.906 on 1 and 321 DF,  p-value: 0.01564</code></pre>
+<pre><code>              Estimate Std. Error   t value     Pr(&gt;|t|)
+(Intercept) 0.38390093 0.03514148 10.924440 7.831184e-24
+gap_temp    0.09241737 0.03802874  2.430198 1.563827e-02</code></pre>
 </div>
 </div>
+<p>La p-value (Pr) associée à gap_temp est significative (&lt; 0.05). Un écart de température positif augmente la fréquence des aléas.</p>
+</section>
+<section id="modèle-2-coût-économique" class="level2">
+<h2 class="anchored" data-anchor-id="modèle-2-coût-économique">Modèle 2 : Coût économique</h2>
+</section>
+<section id="lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd" class="level1">
+<h1>L’anomalie de température explique-t-elle le coût financier (en USD) ?</h1>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>             Estimate Std. Error    t value    Pr(&gt;|t|)
+(Intercept) 130539319   47355060  2.7566076 0.006174453
+gap_temp    -16561442   51245801 -0.3231766 0.746771949</code></pre>
+</div>
+</div>
+<p>La p-value est de 0.747 ce qui est largement supérieur au seuil de significativité. Donc, contrairement à la fréquence, nous ne trouvons pas de lien statistiquement significatif entre l’anomalie de température et le montant des dégâts financiers. Cela s’explique probablement par la nature des données : le coût des catastrophes est très volatile. Une seule catastrophe majeure (indépendante de la température mensuelle moyenne) peut engendrer des coûts énormes, rendant la corrélation linéaire difficile à établir.</p>
 <section id="conclusion-de-lanalyse" class="level3">
 <h3 class="anchored" data-anchor-id="conclusion-de-lanalyse">Conclusion de l’analyse</h3>
-<p>Comme vous pouvez le voir ci-dessus (sous le graphique) :</p>
-<ul>
-<li>Le <strong>coefficient</strong> (Estimate) pour <code>gap_temp</code> est positif (<strong>0.092</strong>).</li>
-<li>La <strong>P-value</strong> (Pr(&gt;|t|)) est de <strong>0.0156</strong> (&lt; 0.05).</li>
-</ul>
-<p>Cela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données.</p>
+<p>Au terme de cette analyse portant sur la France (1996-2022), nous pouvons dresser deux constats majeurs :</p>
+<p>1.Sur la fréquence : Il existe un lien significatif et positif. Les mois présentant une anomalie de température élevée (plus chauds que la normale) sont associés à un plus grand nombre de catastrophes naturelles. Le changement climatique semble donc multiplier les aléas.</p>
+<p>2.Sur le coût : Ce lien n’est pas direct pour les dommages financiers. Si les catastrophes sont plus fréquentes, leur coût individuel reste imprévisible et ne dépend pas linéairement de la température mensuelle.</p>
+<p>En résumé : Le réchauffement climatique en France semble agir comme un “multiplicateur d’événements”, augmentant la fréquence des risques, sans pour autant que l’on puisse prédire mécaniquement l’explosion des coûts mois par mois via un modèle linéaire simple.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

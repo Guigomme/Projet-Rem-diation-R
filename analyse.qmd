@@ -2,41 +2,78 @@
 title: "Analyse des Résultats"
 ---
 
-Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.
+Nous cherchons ici à quantifier les liens entre le réchauffement (anomalie de température) et les conséquences des catastrophes.
 
 ```{r}
 #| echo: false
 #| message: false
 #| warning: false
 
-# 1. CHARGEMENT DES DONNÉES ET LIBRAIRIES
 library(data.table)
 library(ggplot2)
 dt <- fread("data/data_finale.csv")
+ 
+```
 
-# 2. AFFICHAGE DU GRAPHIQUE
-# On stocke le graphique dans 'p' puis on l'affiche avec print()
-p <- ggplot(dt, aes(x = gap_temp, y = nb_disasters)) +
-  geom_point(alpha = 0.5) +
+## Matrice de corrélation
+
+```{r}
+#| echo: false
+
+# Sélection des variables numériques d'intérêt
+vars <- dt[, .(Gap_Temp = gap_temp, 
+               Nb_Catastrophes = nb_disasters, 
+               Morts = nb_deaths, 
+               Cout = total_damages)]
+
+# Calcul de la corrélation
+cor_matrix <- round(cor(vars, use = "complete.obs"), 2)
+
+# Affichage propre
+knitr::kable(cor_matrix, caption = "Matrice de corrélation de Pearson")
+```
+
+On observe une corrélation positive entre Gap_Temp et Nb_Catastrophes.
+
+## Fréquence des catastrophes, l'anomalie de température explique-t-elle le nombre d'événements ?
+
+```{r}
+#| echo: false
+
+# Graphique
+ggplot(dt, aes(x = gap_temp, y = nb_disasters)) +
+  geom_jitter(alpha = 0.4, height = 0.1) +
   geom_smooth(method = "lm", color = "red") +
-  labs(title = "Relation Température / Catastrophes",
-       x = "Anomalie de température (°C)",
-       y = "Nombre de catastrophes") +
+  labs(title = "Régression : Fréquence vs Anomalie Température",
+       x = "Écart de température (°C)", y = "Nb Catastrophes") +
   theme_minimal()
 
-print(p)
-
-# 3. CALCUL ET AFFICHAGE DU MODÈLE
-# On fait la régression et on affiche le résumé juste en dessous
-modele <- lm(nb_disasters ~ gap_temp, data = dt)
-print(summary(modele)) 
+# Modèle
+mod1 <- lm(nb_disasters ~ gap_temp, data = dt)
+# On affiche juste les coefficients importants
+summary(mod1)$coefficients
 ```
+
+La p-value (Pr) associée à gap_temp est significative (< 0.05). Un écart de température positif augmente la fréquence des aléas.
+
+## Modèle 2 : Coût économique
+# L'anomalie de température explique-t-elle le coût financier (en USD) ?
+
+```{r}
+#| echo: false
+
+mod2 <- lm(total_damages ~ gap_temp, data = dt)
+summary(mod2)$coefficients
+```
+
+La p-value est de 0.747 ce qui est largement supérieur au seuil de significativité. Donc, contrairement à la fréquence, nous ne trouvons pas de lien statistiquement significatif entre l'anomalie de température et le montant des dégâts financiers. Cela s'explique probablement par la nature des données : le coût des catastrophes est très volatile. Une seule catastrophe majeure (indépendante de la température mensuelle moyenne) peut engendrer des coûts énormes, rendant la corrélation linéaire difficile à établir.
 
 ### Conclusion de l'analyse
 
-Comme vous pouvez le voir ci-dessus (sous le graphique) :
+Au terme de cette analyse portant sur la France (1996-2022), nous pouvons dresser deux constats majeurs :
 
-* Le **coefficient** (Estimate) pour `gap_temp` est positif (**0.092**).
-* La **P-value** (Pr(>|t|)) est de **0.0156** (< 0.05).
+1.Sur la fréquence : Il existe un lien significatif et positif. Les mois présentant une anomalie de température élevée (plus chauds que la normale) sont associés à un plus grand nombre de catastrophes naturelles. Le changement climatique semble donc multiplier les aléas.
 
-Cela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données.
+2.Sur le coût : Ce lien n'est pas direct pour les dommages financiers. Si les catastrophes sont plus fréquentes, leur coût individuel reste imprévisible et ne dépend pas linéairement de la température mensuelle.
+
+En résumé : Le réchauffement climatique en France semble agir comme un "multiplicateur d'événements", augmentant la fréquence des risques, sans pour autant que l'on puisse prédire mécaniquement l'explosion des coûts mois par mois via un modèle linéaire simple.
