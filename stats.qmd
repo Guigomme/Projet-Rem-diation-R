@@ -63,7 +63,7 @@ resume <- dt[, .(
   Total_Morts = sum(nb_deaths),
   Cout_Total_Millions = round(sum(total_damages)/1000, 1)
 )]
-
+ 
 knitr::kable(resume, caption = "Résumé global (1996-2022)")
 ```
 
