@@ -66,7 +66,7 @@ Nous analysons ici si un mois anormalement chaud correspond à un nombre plus é
 # On utilise 'geom_jitter' au lieu de 'geom_point' car le nombre de catastrophes
 # est souvent un petit nombre entier (0, 1, 2...). Le 'jitter' décale légèrement 
 # les points pour éviter qu'ils ne se superposent, rendant la densité visible.
-# La droite de régression permet de visualiser immédiatement si la pente est positive.
+# La droite de régression permet de visualiser immédiatement si la pente est positive. 
 
 ggplot(dt, aes(x = gap_temp, y = nb_disasters)) +
   geom_jitter(width = 0.1, height = 0.1, alpha = 0.5, color = "darkblue") +
