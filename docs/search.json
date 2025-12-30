@@ -1,54 +1,5 @@
 [
   {
-    "objectID": "stats2.html",
-    "href": "stats2.html",
-    "title": "Statistiques Descriptives",
-    "section": "",
-    "text": "Sur cette page, nous analysons l’évolution des températures en France."
-  },
-  {
-    "objectID": "stats2.html#évolution-de-la-température",
-    "href": "stats2.html#évolution-de-la-température",
-    "title": "Statistiques Descriptives",
-    "section": "Évolution de la Température",
-    "text": "Évolution de la Température\nVoici un graphique montrant la moyenne des températures par année :"
-  },
-  {
-    "objectID": "stats2.html#résumé-des-catastrophes",
-    "href": "stats2.html#résumé-des-catastrophes",
-    "title": "Statistiques Descriptives",
-    "section": "Résumé des Catastrophes",
-    "text": "Résumé des Catastrophes\nQuelques chiffres clés sur la période :\n\n\n   Total_Morts Total_Dommages_USD\n         &lt;int&gt;              &lt;num&gt;\n1:       28059        42164200000"
-  },
-  {
-    "objectID": "index2.html",
-    "href": "index2.html",
-    "title": "Bienvenue",
-    "section": "",
-    "text": "Projet : Impact du changement climatique sur les catastrophes naturelles\nBienvenue sur notre site d’analyse. Ce projet a été réalisé dans le cadre du cours “Introduction à R” du Master 1 IREF.\n\nMembres du groupe :\n\nGuillemette Cipriano\nAndréa Saint-Paul\nPriscillia Dohou\nJosuah Gesdon\nGuillaume Trillard\n\n\n\nObjectif\nNous cherchons à étudier si le réchauffement climatique a un impact sur la fréquence et le coût des catastrophes naturelles en France.\nVous pouvez naviguer vers : * Les statistiques descriptives * L’analyse des résultats"
-  },
-  {
-    "objectID": "analyse2.html",
-    "href": "analyse2.html",
-    "title": "Analyse des Résultats",
-    "section": "",
-    "text": "Dans cette section, nous analysons le lien entre le climat et les catastrophes en une seule étape.\n\n\n\n\n\n\n\n\n\n\nCall:\nlm(formula = nb_disasters ~ gap_temp, data = dt)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-0.5795 -0.4061 -0.3282  0.5374  2.6999 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  0.38390    0.03514   10.92   &lt;2e-16 ***\ngap_temp     0.09242    0.03803    2.43   0.0156 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6316 on 321 degrees of freedom\nMultiple R-squared:  0.01807,   Adjusted R-squared:  0.01501 \nF-statistic: 5.906 on 1 and 321 DF,  p-value: 0.01564\n\n\n\nConclusion de l’analyse\nComme vous pouvez le voir ci-dessus (sous le graphique) :\n\nLe coefficient (Estimate) pour gap_temp est positif (0.092).\nLa P-value (Pr(&gt;|t|)) est de 0.0156 (&lt; 0.05).\n\nCela confirme que les écarts de température ont un impact significatif et positif sur la fréquence des catastrophes dans notre jeu de données."
-  },
-  {
-    "objectID": "analyse.html",
-    "href": "analyse.html",
-    "title": "Analyse des Résultats",
-    "section": "",
-    "text": "Nous cherchons ici à quantifier les liens entre le réchauffement (anomalie de température) et les conséquences des catastrophes."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Bienvenue",
-    "section": "",
-    "text": "Projet : Impact du changement climatique sur les catastrophes naturelles\nBienvenue sur notre site d’analyse. Ce projet a été réalisé dans le cadre du cours “Introduction à R” du Master 1 IREF.\n\nMembres du groupe :\n\nGuillemette Cipriano\nAndréa Saint-Paul\nPriscillia Dohou\nJosuah Gesdon\nGuillaume Trillard\n\n\n\nObjectif\nNous cherchons à étudier si le réchauffement climatique a un impact sur la fréquence et le coût des catastrophes naturelles en France.\nVous pouvez naviguer vers : * Les statistiques descriptives * L’analyse des résultats"
-  },
-  {
     "objectID": "stats.html",
     "href": "stats.html",
     "title": "Statistiques Descriptives",
@@ -67,27 +18,48 @@
     "href": "stats.html#résumé-des-catastrophes",
     "title": "Statistiques Descriptives",
     "section": "Résumé des Catastrophes",
-    "text": "Résumé des Catastrophes\nQuelques chiffres clés sur la période :\n\n\n   Total_Morts Total_Dommages_USD\n         &lt;int&gt;              &lt;num&gt;\n1:       28059        42164200000"
+    "text": "Résumé des Catastrophes\nY a-t-il plus de catastrophes aujourd’hui qu’avant ?\n\n\n`geom_smooth()` using formula = 'y ~ x'"
   },
   {
-    "objectID": "analyse.html#matrice-de-corrélation",
-    "href": "analyse.html#matrice-de-corrélation",
-    "title": "Analyse des Résultats",
-    "section": "Matrice de corrélation",
-    "text": "Matrice de corrélation\n\n\n\nMatrice de corrélation de Pearson\n\n\n\nGap_Temp\nNb_Catastrophes\nMorts\nCout\n\n\n\n\nGap_Temp\n1.00\n0.13\n0.18\n-0.02\n\n\nNb_Catastrophes\n0.13\n1.00\n0.08\n0.27\n\n\nMorts\n0.18\n0.08\n1.00\n0.28\n\n\nCout\n-0.02\n0.27\n0.28\n1.00\n\n\n\n\n\nOn observe une corrélation positive entre Gap_Temp et Nb_Catastrophes."
+    "objectID": "stats.html#tableau-récapitulatif-global",
+    "href": "stats.html#tableau-récapitulatif-global",
+    "title": "Statistiques Descriptives",
+    "section": "Tableau récapitulatif Global",
+    "text": "Tableau récapitulatif Global\n\n\n\nRésumé global (1996-2022)\n\n\nMoyenne_Temp\nTotal_Catastrophes\nTotal_Morts\nCout_Total_Millions\n\n\n\n\n16.8\n124\n28059\n42164200"
   },
   {
-    "objectID": "analyse.html#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements",
-    "href": "analyse.html#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements",
-    "title": "Analyse des Résultats",
-    "section": "Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?",
-    "text": "Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n              Estimate Std. Error   t value     Pr(&gt;|t|)\n(Intercept) 0.38390093 0.03514148 10.924440 7.831184e-24\ngap_temp    0.09241737 0.03802874  2.430198 1.563827e-02\n\n\nLa p-value (Pr) associée à gap_temp est significative (&lt; 0.05). Un écart de température positif augmente la fréquence des aléas."
+    "objectID": "analyse.html",
+    "href": "analyse.html",
+    "title": "Analyse des Résultats : Impact du Climat sur les Catastrophes",
+    "section": "",
+    "text": "Cette section vise à répondre à la problématique centrale du projet : Dans quelle mesure les anomalies de température (signal du changement climatique) influencent-elles la fréquence et le coût des catastrophes naturelles en France ?"
   },
   {
-    "objectID": "analyse.html#modèle-2-coût-économique",
-    "href": "analyse.html#modèle-2-coût-économique",
-    "title": "Analyse des Résultats",
-    "section": "Modèle 2 : Coût économique",
-    "text": "Modèle 2 : Coût économique"
+    "objectID": "analyse.html#visualisation-de-la-tendance-climatique",
+    "href": "analyse.html#visualisation-de-la-tendance-climatique",
+    "title": "Analyse des Résultats : Impact du Climat sur les Catastrophes",
+    "section": "1. Visualisation de la tendance climatique",
+    "text": "1. Visualisation de la tendance climatique\nAvant d’établir des corrélations, il est essentiel de visualiser la variable explicative : l’anomalie de température (!gap_temp!).\n\n\nCode\n# EXPLICATION DU SCHÉMA :\n# Nous utilisons un graphique linéaire pour la chronologie, mais surtout\n# une courbe de tendance lissée (LOESS/GAM) en rouge pour montrer la direction globale.\n# Si la courbe rouge monte, cela valide l'hypothèse du réchauffement sur la période.\n\nggplot(dt, aes(x = date, y = gap_temp)) +\n  geom_line(color = \"steelblue\", alpha = 0.4) +  # Données brutes en transparence\n  geom_smooth(method = \"gam\", color = \"darkred\", se = FALSE) + # Tendance lourde\n  geom_hline(yintercept = 0, linetype = \"dashed\") + # Ligne de référence (normale)\n  labs(title = \"Dynamique des écarts de température\",\n       subtitle = \"La ligne rouge indique la tendance lissée\",\n       x = \"Année\",\n       y = \"Écart à la moyenne historique (°C)\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 1: Évolution de l’anomalie de température mensuelle en France (1996-2022)"
+  },
+  {
+    "objectID": "analyse.html#impact-sur-la-fréquence-des-sinistres",
+    "href": "analyse.html#impact-sur-la-fréquence-des-sinistres",
+    "title": "Analyse des Résultats : Impact du Climat sur les Catastrophes",
+    "section": "2. Impact sur la Fréquence des Sinistres",
+    "text": "2. Impact sur la Fréquence des Sinistres\nNous analysons ici si un mois anormalement chaud correspond à un nombre plus élevé de catastrophes déclarées (!nb_disasters!).\n\n\nCode\n# EXPLICATION DU SCHÉMA :\n# On utilise 'geom_jitter' au lieu de 'geom_point' car le nombre de catastrophes\n# est souvent un petit nombre entier (0, 1, 2...). Le 'jitter' décale légèrement \n# les points pour éviter qu'ils ne se superposent, rendant la densité visible.\n# La droite de régression permet de visualiser immédiatement si la pente est positive. \n\nggplot(dt, aes(x = gap_temp, y = nb_disasters)) +\n  geom_jitter(width = 0.1, height = 0.1, alpha = 0.5, color = \"darkblue\") +\n  geom_smooth(method = \"lm\", color = \"orange\", fill = \"orange\", alpha = 0.2) +\n  labs(title = \"Corrélation : Température vs Fréquence\",\n       subtitle = \"Chaque point représente un mois. La droite orange montre la régression linéaire.\",\n       x = \"Anomalie de température (°C)\",\n       y = \"Nombre d'événements (par mois)\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 2: Relation entre anomalie thermique et fréquence des catastrophes\n\n\n\n\n\n\nModélisation Économétrique\nUne simple droite ne suffit pas pour des données de comptage (on ne peut pas avoir -0.5 catastrophe). Nous utilisons donc un Modèle de Poisson.\n\n\nCode\n# Modèle GLM (Generalized Linear Model) avec famille Poisson.\n# C'est la méthode standard académique pour expliquer des occurrences (Count Data).\n# Nous contrôlons par l'année (+ year) pour isoler l'effet température \n# de l'effet temporel global.\nmod_poisson &lt;- glm(nb_disasters ~ gap_temp + year, data = dt, family = \"poisson\")\n\n# Extraction et affichage propre des résultats\ncoefs &lt;- summary(mod_poisson)$coefficients\nkable(coefs, digits = 4, caption = \"Résultats de la Régression de Poisson\")\n\n\n\nRésultats de la Régression de Poisson\n\n\n\nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-10.7632\n24.6853\n-0.4360\n0.6628\n\n\ngap_temp\n0.2245\n0.1037\n2.1647\n0.0304\n\n\nyear\n0.0049\n0.0123\n0.3963\n0.6919\n\n\n\n\n\nInterprétation : Si la Pr(&gt;|z|) (p-value) de !gap_temp! est inférieure à 0.05, l’impact est significatif. Le coefficient positif indique qu’une augmentation de l’anomalie thermique multiplie le risque d’occurrence d’une catastrophe."
+  },
+  {
+    "objectID": "analyse.html#impact-sur-le-coût-économique",
+    "href": "analyse.html#impact-sur-le-coût-économique",
+    "title": "Analyse des Résultats : Impact du Climat sur les Catastrophes",
+    "section": "3. Impact sur le Coût Économique",
+    "text": "3. Impact sur le Coût Économique\nLe lien est-il aussi fort pour les dommages financiers (!total_damages!) ?\n\n\nCode\n# EXPLICATION DU SCHÉMA :\n# C'est un graphique multivarié (Bubble chart).\n# Axe X : Température / Axe Y : Coût.\n# Taille des bulles : Nombre de morts.\n# Cela permet de voir si les catastrophes les plus coûteuses ou meurtrières\n# surviennent pendant les périodes d'anomalies thermiques, ou si c'est aléatoire.\n\nggplot(dt, aes(x = gap_temp, y = total_damages)) +\n  geom_point(aes(size = nb_deaths), alpha = 0.4, color = \"darkgreen\") +\n  scale_y_continuous(labels = scales::comma) + # Formatage des chiffres (1,000,000)\n  labs(title = \"Distribution des Coûts selon la Température\",\n       x = \"Anomalie de température (°C)\",\n       y = \"Dommages (en '000 USD)\",\n       size = \"Nb de Décès\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 3: Relation entre anomalie thermique et coûts (taille des points = mortalité)\n\n\n\n\n\n\n\nCode\n# Modèle linéaire simple pour les coûts\n# Ici, un modèle linéaire (OLS) suffit pour estimer une relation globale\n# entre le montant des dégâts et la température.\nmod_cout &lt;- lm(total_damages ~ gap_temp + year, data = dt)\ns_cout &lt;- summary(mod_cout)$coefficients\nkable(s_cout, digits = 4, caption = \"Résultats de la Régression Linéaire (Coûts)\")\n\n\n\nRésultats de la Régression Linéaire (Coûts)\n\n\n\nEstimate\nStd. Error\nt value\nPr(&gt;|t|)\n\n\n\n\n(Intercept)\n3481747601\n13101040956\n0.2658\n0.7906\n\n\ngap_temp\n-11636136\n54813687\n-0.2123\n0.8320\n\n\nyear\n-1668131\n6521263\n-0.2558\n0.7983\n\n\n\n\n\n\nConclusion Générale\nD’après nos résultats :\n\nSur la Fréquence : L’analyse confirme une corrélation significative. Le réchauffement climatique (mesuré par !gap_temp!) agit comme un facteur aggravant la probabilité de survenance de catastrophes en France.\nSur les Coûts : Le lien est beaucoup plus ténu, voire non significatif statistiquement. Les dommages financiers dépendent d’autres facteurs (densité de population, valeur des infrastructures touchées) et sont marqués par une très forte volatilité qui ne suit pas linéairement la température."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bienvenue",
+    "section": "",
+    "text": "Projet : Impact du changement climatique sur les catastrophes naturelles\nBienvenue sur notre site d’analyse. Ce projet a été réalisé dans le cadre du cours “Introduction à R” du Master 1 IREF.\n\nMembres du groupe :\n\nGuillemette Cipriano\nAndréa Saint-Paul\nPriscillia Dohou\nJosuah Gesdon\nGuillaume Trillard\n\n\n\nObjectif\nNous cherchons à étudier si le réchauffement climatique a un impact sur la fréquence et le coût des catastrophes naturelles en France.\nVous pouvez naviguer vers : * Les statistiques descriptives * L’analyse des résultats"
   }
 ]
