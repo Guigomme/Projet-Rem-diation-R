@@ -78,7 +78,7 @@ ggplot(dt, aes(x = gap_temp, y = nb_disasters)) +
   theme_minimal()
 ```
 
-### Modélisation Économétrique (Niveau Master)
+### Modélisation Économétrique
 
 Une simple droite ne suffit pas pour des données de comptage (on ne peut pas avoir -0.5 catastrophe). Nous utilisons donc un **Modèle de Poisson**.
 

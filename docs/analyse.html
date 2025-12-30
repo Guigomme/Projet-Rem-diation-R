@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#visualisation-de-la-tendance-climatique" id="toc-visualisation-de-la-tendance-climatique" class="nav-link active" data-scroll-target="#visualisation-de-la-tendance-climatique">1. Visualisation de la tendance climatique</a></li>
   <li><a href="#impact-sur-la-fréquence-des-sinistres" id="toc-impact-sur-la-fréquence-des-sinistres" class="nav-link" data-scroll-target="#impact-sur-la-fréquence-des-sinistres">2. Impact sur la Fréquence des Sinistres</a>
   <ul class="collapse">
-  <li><a href="#modélisation-économétrique-niveau-master" id="toc-modélisation-économétrique-niveau-master" class="nav-link" data-scroll-target="#modélisation-économétrique-niveau-master">Modélisation Économétrique (Niveau Master)</a></li>
+  <li><a href="#modélisation-économétrique" id="toc-modélisation-économétrique" class="nav-link" data-scroll-target="#modélisation-économétrique">Modélisation Économétrique</a></li>
   </ul></li>
   <li><a href="#impact-sur-le-coût-économique" id="toc-impact-sur-le-coût-économique" class="nav-link" data-scroll-target="#impact-sur-le-coût-économique">3. Impact sur le Coût Économique</a>
   <ul class="collapse">
@@ -231,7 +231,7 @@ Figure&nbsp;1: Évolution de l’anomalie de température mensuelle en France (1
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># On utilise 'geom_jitter' au lieu de 'geom_point' car le nombre de catastrophes</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># est souvent un petit nombre entier (0, 1, 2...). Le 'jitter' décale légèrement </span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># les points pour éviter qu'ils ne se superposent, rendant la densité visible.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># La droite de régression permet de visualiser immédiatement si la pente est positive.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># La droite de régression permet de visualiser immédiatement si la pente est positive. </span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> gap_temp, <span class="at">y =</span> nb_disasters)) <span class="sc">+</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
@@ -255,8 +255,8 @@ Figure&nbsp;2: Relation entre anomalie thermique et fréquence des catastrophes
 </div>
 </div>
 </div>
-<section id="modélisation-économétrique-niveau-master" class="level3">
-<h3 class="anchored" data-anchor-id="modélisation-économétrique-niveau-master">Modélisation Économétrique (Niveau Master)</h3>
+<section id="modélisation-économétrique" class="level3">
+<h3 class="anchored" data-anchor-id="modélisation-économétrique">Modélisation Économétrique</h3>
 <p>Une simple droite ne suffit pas pour des données de comptage (on ne peut pas avoir -0.5 catastrophe). Nous utilisons donc un <strong>Modèle de Poisson</strong>.</p>
 <div class="cell">
 <details class="code-fold">
@@ -928,7 +928,7 @@ Figure&nbsp;3: Relation entre anomalie thermique et coûts (taille des points = 
 <span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co"># On utilise 'geom_jitter' au lieu de 'geom_point' car le nombre de catastrophes</span></span>
 <span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co"># est souvent un petit nombre entier (0, 1, 2...). Le 'jitter' décale légèrement </span></span>
 <span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="co"># les points pour éviter qu'ils ne se superposent, rendant la densité visible.</span></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co"># La droite de régression permet de visualiser immédiatement si la pente est positive.</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co"># La droite de régression permet de visualiser immédiatement si la pente est positive. </span></span>
 <span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> gap_temp, <span class="at">y =</span> nb_disasters)) <span class="sc">+</span></span>
 <span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
@@ -940,7 +940,7 @@ Figure&nbsp;3: Relation entre anomalie thermique et coûts (taille des points = 
 <span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modélisation Économétrique (Niveau Master)</span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modélisation Économétrique</span></span>
 <span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>Une simple droite ne suffit pas pour des données de comptage (on ne peut pas avoir -0.5 catastrophe). Nous utilisons donc un **Modèle de Poisson**.</span>
 <span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
