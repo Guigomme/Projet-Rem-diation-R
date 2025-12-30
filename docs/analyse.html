@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analyse des Résultats – Climat &amp; Catastrophes</title>
+<title>Analyse des Résultats : Impact du Climat sur les Catastrophes – Climat &amp; Catastrophes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -116,12 +151,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#matrice-de-corrélation" id="toc-matrice-de-corrélation" class="nav-link active" data-scroll-target="#matrice-de-corrélation">Matrice de corrélation</a></li>
-  <li><a href="#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements" id="toc-fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements" class="nav-link" data-scroll-target="#fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements">Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?</a></li>
-  <li><a href="#modèle-2-coût-économique" id="toc-modèle-2-coût-économique" class="nav-link" data-scroll-target="#modèle-2-coût-économique">Modèle 2 : Coût économique</a></li>
-  <li><a href="#lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd" id="toc-lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd" class="nav-link" data-scroll-target="#lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd">L’anomalie de température explique-t-elle le coût financier (en USD) ?</a>
+  <li><a href="#visualisation-de-la-tendance-climatique" id="toc-visualisation-de-la-tendance-climatique" class="nav-link active" data-scroll-target="#visualisation-de-la-tendance-climatique">1. Visualisation de la tendance climatique</a></li>
+  <li><a href="#impact-sur-la-fréquence-des-sinistres" id="toc-impact-sur-la-fréquence-des-sinistres" class="nav-link" data-scroll-target="#impact-sur-la-fréquence-des-sinistres">2. Impact sur la Fréquence des Sinistres</a>
   <ul class="collapse">
-  <li><a href="#conclusion-de-lanalyse" id="toc-conclusion-de-lanalyse" class="nav-link" data-scroll-target="#conclusion-de-lanalyse">Conclusion de l’analyse</a></li>
+  <li><a href="#modélisation-économétrique-niveau-master" id="toc-modélisation-économétrique-niveau-master" class="nav-link" data-scroll-target="#modélisation-économétrique-niveau-master">Modélisation Économétrique (Niveau Master)</a></li>
+  </ul></li>
+  <li><a href="#impact-sur-le-coût-économique" id="toc-impact-sur-le-coût-économique" class="nav-link" data-scroll-target="#impact-sur-le-coût-économique">3. Impact sur le Coût Économique</a>
+  <ul class="collapse">
+  <li><a href="#conclusion-générale" id="toc-conclusion-générale" class="nav-link" data-scroll-target="#conclusion-générale">Conclusion Générale</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -131,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analyse des Résultats</h1>
+<div class="quarto-title-block"><div><h1 class="title">Analyse des Résultats : Impact du Climat sur les Catastrophes</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -148,98 +185,226 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Nous cherchons ici à quantifier les liens entre le réchauffement (anomalie de température) et les conséquences des catastrophes.</p>
-<section id="matrice-de-corrélation" class="level2">
-<h2 class="anchored" data-anchor-id="matrice-de-corrélation">Matrice de corrélation</h2>
+<p>Cette section vise à répondre à la problématique centrale du projet : <strong>Dans quelle mesure les anomalies de température (signal du changement climatique) influencent-elles la fréquence et le coût des catastrophes naturelles en France ?</strong></p>
+<section id="visualisation-de-la-tendance-climatique" class="level2">
+<h2 class="anchored" data-anchor-id="visualisation-de-la-tendance-climatique">1. Visualisation de la tendance climatique</h2>
+<p>Avant d’établir des corrélations, il est essentiel de visualiser la variable explicative : l’anomalie de température (!gap_temp!).</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLICATION DU SCHÉMA :</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Nous utilisons un graphique linéaire pour la chronologie, mais surtout</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># une courbe de tendance lissée (LOESS/GAM) en rouge pour montrer la direction globale.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Si la courbe rouge monte, cela valide l'hypothèse du réchauffement sur la période.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> gap_temp)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span>  <span class="co"># Données brutes en transparence</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"gam"</span>, <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Tendance lourde</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> <span class="co"># Ligne de référence (normale)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Dynamique des écarts de température"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"La ligne rouge indique la tendance lissée"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Année"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Écart à la moyenne historique (°C)"</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-evolution-temp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-evolution-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="analyse_files/figure-html/fig-evolution-temp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-evolution-temp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Évolution de l’anomalie de température mensuelle en France (1996-2022)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="impact-sur-la-fréquence-des-sinistres" class="level2">
+<h2 class="anchored" data-anchor-id="impact-sur-la-fréquence-des-sinistres">2. Impact sur la Fréquence des Sinistres</h2>
+<p>Nous analysons ici si un mois anormalement chaud correspond à un nombre plus élevé de catastrophes déclarées (!nb_disasters!).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLICATION DU SCHÉMA :</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># On utilise 'geom_jitter' au lieu de 'geom_point' car le nombre de catastrophes</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># est souvent un petit nombre entier (0, 1, 2...). Le 'jitter' décale légèrement </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># les points pour éviter qu'ils ne se superposent, rendant la densité visible.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># La droite de régression permet de visualiser immédiatement si la pente est positive.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> gap_temp, <span class="at">y =</span> nb_disasters)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"orange"</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Corrélation : Température vs Fréquence"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Chaque point représente un mois. La droite orange montre la régression linéaire."</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Anomalie de température (°C)"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Nombre d'événements (par mois)"</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-freq-reg" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-freq-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="analyse_files/figure-html/fig-freq-reg-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-freq-reg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Relation entre anomalie thermique et fréquence des catastrophes
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="modélisation-économétrique-niveau-master" class="level3">
+<h3 class="anchored" data-anchor-id="modélisation-économétrique-niveau-master">Modélisation Économétrique (Niveau Master)</h3>
+<p>Une simple droite ne suffit pas pour des données de comptage (on ne peut pas avoir -0.5 catastrophe). Nous utilisons donc un <strong>Modèle de Poisson</strong>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle GLM (Generalized Linear Model) avec famille Poisson.</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># C'est la méthode standard académique pour expliquer des occurrences (Count Data).</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nous contrôlons par l'année (+ year) pour isoler l'effet température </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># de l'effet temporel global.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>mod_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(nb_disasters <span class="sc">~</span> gap_temp <span class="sc">+</span> year, <span class="at">data =</span> dt, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraction et affichage propre des résultats</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_poisson)<span class="sc">$</span>coefficients</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(coefs, <span class="at">digits =</span> <span class="dv">4</span>, <span class="at">caption =</span> <span class="st">"Résultats de la Régression de Poisson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<caption>Matrice de corrélation de Pearson</caption>
+<caption>Résultats de la Régression de Poisson</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
-<th style="text-align: right;">Gap_Temp</th>
-<th style="text-align: right;">Nb_Catastrophes</th>
-<th style="text-align: right;">Morts</th>
-<th style="text-align: right;">Cout</th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">z value</th>
+<th style="text-align: right;">Pr(&gt;|z|)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Gap_Temp</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">-0.02</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-10.7632</td>
+<td style="text-align: right;">24.6853</td>
+<td style="text-align: right;">-0.4360</td>
+<td style="text-align: right;">0.6628</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Nb_Catastrophes</td>
-<td style="text-align: right;">0.13</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.08</td>
-<td style="text-align: right;">0.27</td>
+<td style="text-align: left;">gap_temp</td>
+<td style="text-align: right;">0.2245</td>
+<td style="text-align: right;">0.1037</td>
+<td style="text-align: right;">2.1647</td>
+<td style="text-align: right;">0.0304</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Morts</td>
-<td style="text-align: right;">0.18</td>
-<td style="text-align: right;">0.08</td>
-<td style="text-align: right;">1.00</td>
-<td style="text-align: right;">0.28</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Cout</td>
-<td style="text-align: right;">-0.02</td>
-<td style="text-align: right;">0.27</td>
-<td style="text-align: right;">0.28</td>
-<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">0.0049</td>
+<td style="text-align: right;">0.0123</td>
+<td style="text-align: right;">0.3963</td>
+<td style="text-align: right;">0.6919</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>On observe une corrélation positive entre Gap_Temp et Nb_Catastrophes.</p>
+<p><strong>Interprétation :</strong> Si la <em>Pr(&gt;|z|)</em> (p-value) de !gap_temp! est inférieure à 0.05, l’impact est significatif. Le coefficient positif indique qu’une augmentation de l’anomalie thermique multiplie le risque d’occurrence d’une catastrophe.</p>
 </section>
-<section id="fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements" class="level2">
-<h2 class="anchored" data-anchor-id="fréquence-des-catastrophes-lanomalie-de-température-explique-t-elle-le-nombre-dévénements">Fréquence des catastrophes, l’anomalie de température explique-t-elle le nombre d’événements ?</h2>
+</section>
+<section id="impact-sur-le-coût-économique" class="level2">
+<h2 class="anchored" data-anchor-id="impact-sur-le-coût-économique">3. Impact sur le Coût Économique</h2>
+<p>Le lien est-il aussi fort pour les dommages financiers (!total_damages!) ?</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLICATION DU SCHÉMA :</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># C'est un graphique multivarié (Bubble chart).</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Axe X : Température / Axe Y : Coût.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Taille des bulles : Nombre de morts.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cela permet de voir si les catastrophes les plus coûteuses ou meurtrières</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># surviennent pendant les périodes d'anomalies thermiques, ou si c'est aléatoire.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> gap_temp, <span class="at">y =</span> total_damages)) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> nb_deaths), <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span> <span class="co"># Formatage des chiffres (1,000,000)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution des Coûts selon la Température"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Anomalie de température (°C)"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Dommages (en '000 USD)"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Nb de Décès"</span>) <span class="sc">+</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="analyse_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-cost-bubble" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cost-bubble-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="analyse_files/figure-html/fig-cost-bubble-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cost-bubble-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Relation entre anomalie thermique et coûts (taille des points = mortalité)
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>              Estimate Std. Error   t value     Pr(&gt;|t|)
-(Intercept) 0.38390093 0.03514148 10.924440 7.831184e-24
-gap_temp    0.09241737 0.03802874  2.430198 1.563827e-02</code></pre>
 </div>
-</div>
-<p>La p-value (Pr) associée à gap_temp est significative (&lt; 0.05). Un écart de température positif augmente la fréquence des aléas.</p>
-</section>
-<section id="modèle-2-coût-économique" class="level2">
-<h2 class="anchored" data-anchor-id="modèle-2-coût-économique">Modèle 2 : Coût économique</h2>
-</section>
-<section id="lanomalie-de-température-explique-t-elle-le-coût-financier-en-usd" class="level1">
-<h1>L’anomalie de température explique-t-elle le coût financier (en USD) ?</h1>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>             Estimate Std. Error    t value    Pr(&gt;|t|)
-(Intercept) 130539319   47355060  2.7566076 0.006174453
-gap_temp    -16561442   51245801 -0.3231766 0.746771949</code></pre>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle linéaire simple pour les coûts</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ici, un modèle linéaire (OLS) suffit pour estimer une relation globale</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># entre le montant des dégâts et la température.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>mod_cout <span class="ot">&lt;-</span> <span class="fu">lm</span>(total_damages <span class="sc">~</span> gap_temp <span class="sc">+</span> year, <span class="at">data =</span> dt)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>s_cout <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_cout)<span class="sc">$</span>coefficients</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(s_cout, <span class="at">digits =</span> <span class="dv">4</span>, <span class="at">caption =</span> <span class="st">"Résultats de la Régression Linéaire (Coûts)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Résultats de la Régression Linéaire (Coûts)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Estimate</th>
+<th style="text-align: right;">Std. Error</th>
+<th style="text-align: right;">t value</th>
+<th style="text-align: right;">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">3481747601</td>
+<td style="text-align: right;">13101040956</td>
+<td style="text-align: right;">0.2658</td>
+<td style="text-align: right;">0.7906</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gap_temp</td>
+<td style="text-align: right;">-11636136</td>
+<td style="text-align: right;">54813687</td>
+<td style="text-align: right;">-0.2123</td>
+<td style="text-align: right;">0.8320</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">-1668131</td>
+<td style="text-align: right;">6521263</td>
+<td style="text-align: right;">-0.2558</td>
+<td style="text-align: right;">0.7983</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<p>La p-value est de 0.747 ce qui est largement supérieur au seuil de significativité. Donc, contrairement à la fréquence, nous ne trouvons pas de lien statistiquement significatif entre l’anomalie de température et le montant des dégâts financiers. Cela s’explique probablement par la nature des données : le coût des catastrophes est très volatile. Une seule catastrophe majeure (indépendante de la température mensuelle moyenne) peut engendrer des coûts énormes, rendant la corrélation linéaire difficile à établir.</p>
-<section id="conclusion-de-lanalyse" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion-de-lanalyse">Conclusion de l’analyse</h3>
-<p>Au terme de cette analyse portant sur la France (1996-2022), nous pouvons dresser deux constats majeurs :</p>
-<p>1.Sur la fréquence : Il existe un lien significatif et positif. Les mois présentant une anomalie de température élevée (plus chauds que la normale) sont associés à un plus grand nombre de catastrophes naturelles. Le changement climatique semble donc multiplier les aléas.</p>
-<p>2.Sur le coût : Ce lien n’est pas direct pour les dommages financiers. Si les catastrophes sont plus fréquentes, leur coût individuel reste imprévisible et ne dépend pas linéairement de la température mensuelle.</p>
-<p>En résumé : Le réchauffement climatique en France semble agir comme un “multiplicateur d’événements”, augmentant la fréquence des risques, sans pour autant que l’on puisse prédire mécaniquement l’explosion des coûts mois par mois via un modèle linéaire simple.</p>
+<section id="conclusion-générale" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion-générale">Conclusion Générale</h3>
+<p>D’après nos résultats :</p>
+<ol type="1">
+<li><strong>Sur la Fréquence</strong> : L’analyse confirme une corrélation significative. Le réchauffement climatique (mesuré par !gap_temp!) agit comme un facteur aggravant la probabilité de survenance de catastrophes en France.</li>
+<li><strong>Sur les Coûts</strong> : Le lien est beaucoup plus ténu, voire non significatif statistiquement. Les dommages financiers dépendent d’autres facteurs (densité de population, valeur des infrastructures touchées) et sont marqués par une très forte volatilité qui ne suit pas linéairement la température.</li>
+</ol>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -314,6 +479,57 @@ gap_temp    -16561442   51245801 -0.3231766 0.746771949</code></pre>
         container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
       clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -643,7 +859,153 @@ gap_temp    -16561442   51245801 -0.3231766 0.746771949</code></pre>
       }
     }
   });
-  </script>
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Analyse des Résultats : Impact du Climat sur les Catastrophes"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Cette section vise à répondre à la problématique centrale du projet : **Dans quelle mesure les anomalies de température (signal du changement climatique) influencent-elles la fréquence et le coût des catastrophes naturelles en France ?**</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des librairies nécessaires</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table) <span class="co"># Pour la manipulation rapide des données</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)    <span class="co"># Pour la visualisation avancée</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)      <span class="co"># Pour les modèles économétriques</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)      <span class="co"># Pour l'affichage propre des tableaux</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données (Vérifiez bien le nom de votre fichier CSV ici)</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/data_finale.csv"</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Création d'une variable 'date' pour les graphiques temporels</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Cela permet à ggplot de comprendre l'axe chronologique correctement</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>dt[, date <span class="sc">:</span><span class="er">=</span> <span class="fu">as.Date</span>(<span class="fu">paste</span>(year, month, <span class="st">"01"</span>, <span class="at">sep =</span> <span class="st">"-"</span>))]</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## 1. Visualisation de la tendance climatique</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>Avant d'établir des corrélations, il est essentiel de visualiser la variable explicative : l'anomalie de température (!gap_temp!).</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-evolution-temp</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Évolution de l'anomalie de température mensuelle en France (1996-2022)"</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLICATION DU SCHÉMA :</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Nous utilisons un graphique linéaire pour la chronologie, mais surtout</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co"># une courbe de tendance lissée (LOESS/GAM) en rouge pour montrer la direction globale.</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Si la courbe rouge monte, cela valide l'hypothèse du réchauffement sur la période.</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> gap_temp)) <span class="sc">+</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span>  <span class="co"># Données brutes en transparence</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"gam"</span>, <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Tendance lourde</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> <span class="co"># Ligne de référence (normale)</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Dynamique des écarts de température"</span>,</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"La ligne rouge indique la tendance lissée"</span>,</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Année"</span>,</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Écart à la moyenne historique (°C)"</span>) <span class="sc">+</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. Impact sur la Fréquence des Sinistres</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>Nous analysons ici si un mois anormalement chaud correspond à un nombre plus élevé de catastrophes déclarées (!nb_disasters!).</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-freq-reg</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Relation entre anomalie thermique et fréquence des catastrophes"</span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLICATION DU SCHÉMA :</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co"># On utilise 'geom_jitter' au lieu de 'geom_point' car le nombre de catastrophes</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="co"># est souvent un petit nombre entier (0, 1, 2...). Le 'jitter' décale légèrement </span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="co"># les points pour éviter qu'ils ne se superposent, rendant la densité visible.</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co"># La droite de régression permet de visualiser immédiatement si la pente est positive.</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> gap_temp, <span class="at">y =</span> nb_disasters)) <span class="sc">+</span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"orange"</span>, <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Corrélation : Température vs Fréquence"</span>,</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Chaque point représente un mois. La droite orange montre la régression linéaire."</span>,</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Anomalie de température (°C)"</span>,</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Nombre d'événements (par mois)"</span>) <span class="sc">+</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Modélisation Économétrique (Niveau Master)</span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>Une simple droite ne suffit pas pour des données de comptage (on ne peut pas avoir -0.5 catastrophe). Nous utilisons donc un **Modèle de Poisson**.</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: model-poisson</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle GLM (Generalized Linear Model) avec famille Poisson.</span></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="co"># C'est la méthode standard académique pour expliquer des occurrences (Count Data).</span></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Nous contrôlons par l'année (+ year) pour isoler l'effet température </span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="co"># de l'effet temporel global.</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>mod_poisson <span class="ot">&lt;-</span> <span class="fu">glm</span>(nb_disasters <span class="sc">~</span> gap_temp <span class="sc">+</span> year, <span class="at">data =</span> dt, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraction et affichage propre des résultats</span></span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>coefs <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_poisson)<span class="sc">$</span>coefficients</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(coefs, <span class="at">digits =</span> <span class="dv">4</span>, <span class="at">caption =</span> <span class="st">"Résultats de la Régression de Poisson"</span>)</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>**Interprétation :**</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>Si la *Pr(&gt;|z|)* (p-value) de !gap_temp! est inférieure à 0.05, l'impact est significatif. Le coefficient positif indique qu'une augmentation de l'anomalie thermique multiplie le risque d'occurrence d'une catastrophe.</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Impact sur le Coût Économique</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>Le lien est-il aussi fort pour les dommages financiers (!total_damages!) ?</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-cost-bubble</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Relation entre anomalie thermique et coûts (taille des points = mortalité)"</span></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a><span class="co"># EXPLICATION DU SCHÉMA :</span></span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a><span class="co"># C'est un graphique multivarié (Bubble chart).</span></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="co"># Axe X : Température / Axe Y : Coût.</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a><span class="co"># Taille des bulles : Nombre de morts.</span></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a><span class="co"># Cela permet de voir si les catastrophes les plus coûteuses ou meurtrières</span></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a><span class="co"># surviennent pendant les périodes d'anomalies thermiques, ou si c'est aléatoire.</span></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dt, <span class="fu">aes</span>(<span class="at">x =</span> gap_temp, <span class="at">y =</span> total_damages)) <span class="sc">+</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> nb_deaths), <span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">color =</span> <span class="st">"darkgreen"</span>) <span class="sc">+</span></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span> <span class="co"># Formatage des chiffres (1,000,000)</span></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribution des Coûts selon la Température"</span>,</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Anomalie de température (°C)"</span>,</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Dommages (en '000 USD)"</span>,</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Nb de Décès"</span>) <span class="sc">+</span></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: model-cout</span></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Modèle linéaire simple pour les coûts</span></span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a><span class="co"># Ici, un modèle linéaire (OLS) suffit pour estimer une relation globale</span></span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a><span class="co"># entre le montant des dégâts et la température.</span></span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>mod_cout <span class="ot">&lt;-</span> <span class="fu">lm</span>(total_damages <span class="sc">~</span> gap_temp <span class="sc">+</span> year, <span class="at">data =</span> dt)</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>s_cout <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod_cout)<span class="sc">$</span>coefficients</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(s_cout, <span class="at">digits =</span> <span class="dv">4</span>, <span class="at">caption =</span> <span class="st">"Résultats de la Régression Linéaire (Coûts)"</span>)</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a><span class="fu">### Conclusion Générale</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>D'après nos résultats :</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Sur la Fréquence** : L'analyse confirme une corrélation significative. Le réchauffement climatique (mesuré par !gap_temp!) agit comme un facteur aggravant la probabilité de survenance de catastrophes en France.</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Sur les Coûts** : Le lien est beaucoup plus ténu, voire non significatif statistiquement. Les dommages financiers dépendent d'autres facteurs (densité de population, valeur des infrastructures touchées) et sont marqués par une très forte volatilité qui ne suit pas linéairement la température.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
